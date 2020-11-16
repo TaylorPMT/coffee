@@ -1,0 +1,46 @@
+.page__contact {
+    margin-top: 20px;
+    .footer__box-content {
+        border: 1px solid $colorLine;
+        padding: 15px;
+        background-color: white;
+        * {
+            color: black;
+        }
+        .footer__title {
+            text-align: center;
+            padding-top: 10px;
+            background: #f04949;
+            border-bottom: 1px solid $colorLine;
+            a {
+                color:white;
+            }
+        }
+        a:hover {
+            color: black;
+            text-decoration: underline;
+        }
+    }
+    &-title {
+        h1 {
+            margin-bottom: 0;
+        }
+        .social {
+            justify-content: center;
+            a:first-child span {
+                color: blue;
+            }
+            a:last-child span {
+                color: red;
+            }
+        }
+    }
+}
+
+@media only screen and (max-width: 768px){
+    .page__contact {
+        .mob-mg {
+            margin-top: 20px;
+        }
+    }
+}

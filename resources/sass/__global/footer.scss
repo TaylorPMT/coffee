@@ -1,0 +1,131 @@
+footer {
+    background-color: $colorMain;
+    margin-top: 20px;
+    h1 {
+        font-size: size(32);
+    }
+    
+}
+
+
+.footer {
+    &__box {
+        &-header {
+        font-size: size(24);
+        font-weight: 600;
+        text-align: center;
+        color: white;
+        padding: 15px 0;
+        color:#d61a1a;
+        }
+    }
+    &__title {
+        font-size: size(22);
+        font-weight: 400;
+        margin: 0;
+        color: white;
+        padding-bottom: 10px;
+        border-bottom: 1px solid white;
+    }
+    &__content {
+        display: flex;
+        margin: 10px 0 0;
+        color: white;
+        padding: 5px 0;
+        font-weight: 400;
+        span {
+            padding-right: 5px;
+        }
+        a {
+            padding-left: 5px;
+            display: block;
+            color: white;
+            &:hover {
+                text-decoration: underline!important;
+                color: white;
+            }
+        }
+    }
+    &__mail {
+        padding-left: 10px;
+            display: block;
+            color: white;
+            &:hover {
+                text-decoration: underline!important;
+                color: white;
+            }
+    }
+}
+
+.footer__mail.address:hover {
+    text-decoration: none!important;
+}
+
+.ping {
+    width: 15px;
+    height: 15px;
+    background-color: red;
+    border: 1px;
+    border-radius: 50%;
+    margin-right: 20px;
+    animation: pingscale 2s linear infinite;
+    &__box {
+        align-items: center;
+    }
+}
+
+.social {
+    display: flex;
+    padding: 10px 0;
+    a {
+        display: block;
+        color: white;
+        span {
+            font-size: 25px;
+            &:first-child {
+                padding-right: 15px;
+            }
+        }
+        &:hover {
+            color: #2d0f0f;
+            transition: .2s all ease-in-out;
+        }
+    }
+}
+
+
+.totop { 
+    position: fixed;
+    background-color: black;
+    color: white;
+    border: 1px;
+    border-radius: 50%;
+    padding: 10px 10px;
+    bottom: 10%;
+    right: 50px;
+    // display: flex;
+    align-items: center;
+    display: none;
+    cursor: pointer;
+    &:hover {
+        background-color: white;
+        transition: .2s all ease-in-out;
+        span {
+            color: black;
+        }
+    }
+}
+@media only screen and (max-width: 1024px) {
+    .social-map {
+        iframe {
+            width: 300px;
+        }
+    }
+}
+@media only screen and (max-width: 768px) {
+    .social-map {
+        iframe {
+            width: 100%;
+        }
+    }
+}
