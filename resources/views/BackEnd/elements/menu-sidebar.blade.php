@@ -14,6 +14,12 @@
           </a>
         </li>
         <li class="nav-item ">
+            <a class="nav-link" href="{{ Route('admin.productIndex') }}">
+              <i class="material-icons">content_paste</i>
+              <p>Quản Lý Sản Phẩm</p>
+            </a>
+          </li>
+        <li class="nav-item ">
           <a class="nav-link" href="./rtl.html">
             <i class="material-icons">language</i>
             <p>RTL Support</p>

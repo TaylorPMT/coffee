@@ -72,41 +72,6 @@
                         <label for="title">Tên thể loại</label>
                         <input type="text" class="form-control" name="name" minlength="5" >
                     </div>
-                    <div class="form-group">
-                        <label for="title">Từ khoá SEO</label>
-                        <input type="text" class="form-control" name="meta_key" minlength="5">
-                    </div>
-                    <div class="form-group">
-                        <label for="title">Nội dung SEO</label>
-                        <input type="text" class="form-control" name="meta_desc" minlength="5">
-                    </div>
-                    <div class="form-group">
-                        <label for="title">Thẻ ALT</label>
-                        <input type="text" class="form-control" name="alt" minlength="5">
-                    </div>
-                    <div class="form-group">
-                        <label class="control-label">Trạng thái</label>
-                            <div class="radio-list">
-                                <label>
-                                <input type="radio" name="status" value="0"/>Không hoạt động</label>
-                                <br>
-                                <label>
-                                <input type="radio" name="status" value="1" checked="checked" />Hoạt động</label>
-                            </div>
-                    </div>
-                    <div class="col-md-4">
-                        <div class="fileinput fileinput-new text-center" data-provides="fileinput">
-                            <div class="fileinput-preview fileinput-exists thumbnail img-raised"></div>
-                            <div>
-                            <span class="btn btn-raised btn-round btn-default btn-file">
-                                <span class="fileinput-new">Chọn Hình</span>
-                                <span class="fileinput-exists">Thể Loại</span>
-                                <input type="file" name="image" />
-                            </span>
-                                <a href="#pablo" class="btn btn-danger btn-round fileinput-exists" data-dismiss="fileinput"><i class="fa fa-times"></i> Remove</a>
-                            </div>
-                        </div>
-                    </div>
             </div>
         </div>
         <div class="row">

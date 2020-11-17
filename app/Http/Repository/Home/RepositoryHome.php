@@ -18,9 +18,9 @@ class RepositoryHome implements InterFaceHome{
         return $this->_modelCall->all();
     }
     //tìm kiếm theo id nếu lỗi không thấy thì redirect 404
-    public function findOrFailE()
+    public function findOrFailE($id)
     {
-        return $this->_modelCall->findOrFail();
+        return $this->_modelCall->findOrFail($id);
     }
     public  function whereE(array $where)
     {

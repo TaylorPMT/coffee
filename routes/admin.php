@@ -12,8 +12,18 @@ Route::post('admin-login-post','BackEnd\LoginController@postLogin')->name('admin
     Route::group(['prefix' => 'category'], function () {
         Route::get('index','CategorysController@index')->name('admin.categoryIndex');
         Route::get('getData','CategorysController@getDataAjax')->name('admin.categoryAjax');
-
+        Route::any('save','CategorysController@addCategory')->name('admin.categorySave');
+        Route::any('update/{id}','CategorysController@updateCategory')->name('admin.categoryUpdate');
         Route::get('delete/{id}','CategorysController@deleteCategory')->name('admin.categoryDelete');
+    });
+    //quản lý product
+    Route::group(['prefix' => 'product'], function () {
+        Route::get('index','ProductsController@index')->name('admin.productIndex');
+        Route::get('getData','ProductsController@getDataAjax')->name('admin.productAjax');
+        Route::any('save','ProductsController@addProduct')->name('admin.productSave');
+        Route::any('update/{id}','ProductsController@updateProduct')->name('admin.productUpdate');
+        Route::get('update-status/{id}','ProductsController@updateStatusProduct')->name('admin.productUpdateStatus');
+        Route::get('delete/{id}','ProductsController@deleteProduct')->name('admin.productDelete');
     });
 
     //file manager
