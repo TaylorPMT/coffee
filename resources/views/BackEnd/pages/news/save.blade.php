@@ -55,30 +55,20 @@
    </div>
         <div class="row">
             <div class="col-md-8">
-                <form action="{{Route('admin.newsSave')}}" method="POST" enctype="multipart/form-data">
+                <form action="{{ Route('admin.newsCategorySave') }}" method="POST" enctype="multipart/form-data">
                     @csrf
                     <div class="form-group">
                         <label for="title">Chủ đề</label>
-                        <input type="text" class="form-control" name="name" minlength="5" maxlength="20">
-                    </div>
-
-                    <div class="form-group">
-                        <label for="title">Mô tả SEO</label>
-                        <input type="text" class="form-control" name="meta_desc" minlength="5">
-                    </div>
-
-                    <div class="form-group">
-                        <label for="title">Từ khoá SEO</label>
-                        <input type="text" class="form-control" name="meta_key" minlength="5">
+                        <input type="text" class="form-control" name="ten_dmtintuc" minlength="5" maxlength="20">
                     </div>
                     <div class="form-group">
                         <label class="control-label">Trạng thái</label>
                             <div class="radio-list">
                                 <label>
-                                <input type="radio" name="status" value="0"/>Không hoạt động</label>
+                                <input type="radio" name="trangthai" value="0"/>Không hoạt động</label>
                                 <br>
                                 <label>
-                                <input type="radio" name="status" value="1" checked="checked" />Hoạt động</label>
+                                <input type="radio" name="trangthai" value="1" checked="checked" />Hoạt động</label>
                             </div>
                     </div>
             </div>

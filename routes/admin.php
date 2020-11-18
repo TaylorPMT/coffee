@@ -47,7 +47,30 @@ Route::post('admin-login-post','BackEnd\LoginController@postLogin')->name('admin
 
 
     //file manager
+    Route::group(['prefix' => 'news'], function () {
+        Route::get('index','NewsCategoryController@index')->name('admin.newsCategoryIndex');
+        Route::get('getData','NewsCategoryController@getDataAjax')->name('admin.newsCategoryAjax');
+        Route::get('delete/{id}','NewsCategoryController@delete')->name('admin.newsCategoryDelete');
+        Route::get('update-status/{id}','NewsCategoryController@updateStatus')->name('admin.newsCategoryUpdateStatus');
+        Route::any('save','NewsCategoryController@save')->name('admin.newsCategorySave');
+        Route::any('update/{id}','NewsCategoryController@update')->name('admin.updateNewsCategory');
+    });
+    Route::group(['prefix' => 'news-detail'], function () {
+        Route::get('{id}','NewsDetailsController@index')->name('admin.newsDetailIndex');
+        Route::any('save/{id}','NewsDetailsController@save')->name('admin.newsdetailsSave');
+        Route::get('fetch-data/{id}','NewsDetailsController@getDataAjax')->name('admin.newsdetailsFetchIndex');
+        Route::get('update-status/{id}','NewsDetailsController@updateStatus')->name('admin.newsdetailsUpdateStatus');
+        Route::get('delete/{id}','NewsDetailsController@delete')->name('admin.newsdetailsDelete');
+    });
+    Route::group(['prefix' => 'banner'], function () {
+        Route::get('index','SlideQcContronller@index')->name('admin.bannerIndex');
+        Route::get('getData','SlideQcContronller@getData')->name('admin.bannerFetchIndex');
+        Route::get('delete/{id}','SlideQcContronller@delete')->name('admin.bannerDelete');
+        Route::any('save','SlideQcContronller@save')->name('admin.bannerSave');
+        Route::any('update/{id}','SlideQcContronller@update')->name('admin.bannerUpdate');
 
+
+    });
     Route::group(['prefix' => 'quan-ly-thong-tin'], function () {
         Route::get('quan-ly-thong-tin','AdminController@index')->name('admin.infoIndex');
         Route::post('cap-nhat','AdminController@update')->name('admin.updateProfile');

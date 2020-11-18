@@ -31,5 +31,13 @@ class RepositoryHome implements InterFaceHome{
     {
         return $this->_modelCall->findOrFail($id)->delete();
     }
+    public function createDataE(array $data)
+    {
+        return $this->_modelCall->create($data);
+    }
+    public function updateDataE($id,array $data)
+    {
+        return $this->_modelCall->findOrFail($id)->update($data);
+    }
 
 }

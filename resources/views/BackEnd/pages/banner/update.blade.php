@@ -70,48 +70,11 @@
             <div class="col-md-8">
                 <form action="{{Route('admin.bannerUpdate',$queryBanner->id)}}" method="POST" enctype="multipart/form-data">
                     @csrf
-                    <div class="form-group">
-                        <label for="title">Title</label>
-                        <input type="text" class="form-control" name="title" minlength="5" maxlength="20" value="{{ $queryBanner->title }}" >
-                    </div>
 
-
-                    <div class="form-group">
-                        <label for="title">Thẻ Miêu Tả</label>
-                        <input type="text" class="form-control" value="{{ $queryBanner->alt }}" name="desc" minlength="5" maxlength="40" >
-
-                    </div>
                     <div class="form-group">
                         <label for="title">Link Đường Dẫn</label>
-                        <input type="text" value="{{ $queryBanner->href }}" class="form-control" name="href" minlength="5" maxlength="40" required>
+                        <input type="text" value="{{ $queryBanner->link }}" class="form-control" name="href" minlength="5"  required>
 
-                    </div>
-                    <div class="form-group">
-                        <label for="Chọn Vị Trí Banner" style="display: block;">Chọn Vị Trí Banner </label>
-                        <div class="form-check form-check-radio form-check-inline">
-                            <label class="form-check-label">
-                              <input class="form-check-input" type="radio" name="order_id" id="inlineRadio1" checked value="1"> Trang Chủ
-                              <span class="circle">
-                                  <span class="check"></span>
-                              </span>
-                            </label>
-                          </div>
-                          <div class="form-check form-check-radio form-check-inline">
-                            <label class="form-check-label">
-                              <input class="form-check-input" type="radio" name="order_id" id="inlineRadio2" value="2"> Sản Phẩm
-                              <span class="circle">
-                                  <span class="check"></span>
-                              </span>
-                            </label>
-                          </div>
-                          <div class="form-check form-check-radio form-check-inline disabled">
-                            <label class="form-check-label">
-                              <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio3" value="option3" disabled> Còn Nữa
-                              <span class="circle">
-                                  <span class="check"></span>
-                              </span>
-                            </label>
-                          </div>
                     </div>
 
             </div>

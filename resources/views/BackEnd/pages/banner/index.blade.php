@@ -29,32 +29,17 @@
              <table class="table" id="myTable">
                 <thead class=" text-primary">
                     <th>#</th>
-                    <th>
-                        Quản Lý
-                    </th>
+
                    <th>
                       Hình Ảnh
                    </th>
-                     <th>
-                        Tiêu Đề
-                     </th>
-                     <th>
-                        Thẻ ALT
-                     </th>
-                        <th>
-                            Trạng Thái
-                        </th>
+
                    <th>
                         Hành Động
                    </th>
                 </thead>
                 <tbody>
-                   <tr>
-                      <td>
-                         1
-                      </td>
 
-                   </tr>
 
                 </tbody>
              </table>
@@ -81,11 +66,9 @@
                     {data:'stt',render: function (data, type, row, meta) {
                             return meta.row + meta.settings._iDisplayStart + 1;
                         }},
-                    {data:'account',name:'account'},
+
                     {data:'image',name:'image'},
-                    {data:'title',name:'title'},
-                    {data:'alt',name:'alt'},
-                    {data:'status',name:'status'},
+
                     {data:'action',name:'action'},
                 ]
             });
@@ -97,6 +80,7 @@
             $(document).on("click",".delete",function (){
                id= $(this).val();
                //gọi modal để xác nhận ý kiến nếu ok mới xóa dữ liệu
+               $("#btn-confirm").text("Đồng Ý");
                $('.modal-delete').modal('show');
 
             });
@@ -143,7 +127,7 @@
             var update;
             $(document).on("click",".update_status",function (){
                 update=$(this).val();
-                let url ="{{Route('admin.bannerUpdateStatus',':id')}}";
+                let url ="";
                 url=url.replace(':id',update);
                 $.ajax({
                     url:url,

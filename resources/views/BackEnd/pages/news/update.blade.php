@@ -55,30 +55,22 @@
    </div>
         <div class="row">
             <div class="col-md-8">
-                <form action="{{Route('admin.newsUpdate',$news->id)}}" method="POST" enctype="multipart/form-data">
+                <form action="{{Route('admin.updateNewsCategory',$news->id)}}" method="POST" enctype="multipart/form-data">
                     @csrf
                     <div class="form-group">
                         <label for="title">Tiêu đề</label>
-                        <input type="text" class="form-control" value="{{ $news->name }}" name="name" minlength="5" maxlength="20">
+                        <input type="text" class="form-control" value="{{ $news->ten_dmtintuc }}" name="ten_dmtintuc" minlength="5" required>
                     </div>
 
-                    <div class="form-group">
-                        <label for="title">Mô tả SEO</label>
-                        <input type="text" class="form-control" value="{{ $news->meta_desc }}" name="meta_desc" minlength="5">
-                    </div>
 
-                    <div class="form-group">
-                        <label for="title">Từ khoá SEO</label>
-                        <input type="text" class="form-control" value="{{ $news->meta_key }}" name="meta_key" minlength="5">
-                    </div>
                     <div class="form-group">
                         <label class="control-label">Trạng thái</label>
                             <div class="radio-list">
                                 <label>
-                                <input type="radio" name="status" value="0" {{ $news->status ==0 ?"checked":"" }} />Không hoạt động</label>
+                                <input type="radio" name="trangthai" value="0" {{ $news->trangthai ==0 ?"checked":"" }} />Không hoạt động</label>
                                 <br>
                                 <label>
-                                <input type="radio" name="status" value="1" {{ $news->status ==1 ?"checked":"" }}  />Hoạt động</label>
+                                <input type="radio" name="trangthai" value="1" {{ $news->trangthai ==1 ?"checked":"" }}  />Hoạt động</label>
                             </div>
                     </div>
             </div>

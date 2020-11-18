@@ -72,7 +72,7 @@ class CategorysController extends Controller
             {
                 return response()->json($this->message('Không Thể Xóa Vì Có Sản Phẩm Liên Quan',false));
             }
-          $this->_model->deleteIdE($id);
+            $this->_model->deleteIdE($id);
            return response()->json($this->message('Xóa Thành Công',true));
         }
     }
