@@ -17,7 +17,13 @@ Route::post('admin-login-post','BackEnd\LoginController@postLogin')->name('admin
     });
 
     //file manager
-
+    Route::group(['prefix' => 'news'], function () {
+        Route::get('index','NewsCategoryController@index')->name('admin.newsCategoryIndex');
+        Route::get('getData','NewsCategoryController@getDataAjax')->name('admin.newsCategoryAjax');
+        Route::get('delete/{id}','NewsCategoryController@delete')->name('admin.newsCategoryDelete');
+        Route::get('update-status/{id}','NewsCategoryController@updateStatus')->name('admin.newsCategoryUpdateStatus');
+        Route::any('save','NewsCategoryController@save')->name('admin.newsCategorySave');
+    });
     Route::group(['prefix' => 'quan-ly-thong-tin'], function () {
         Route::get('quan-ly-thong-tin','AdminController@index')->name('admin.infoIndex');
         Route::post('cap-nhat','AdminController@update')->name('admin.updateProfile');

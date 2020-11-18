@@ -14,6 +14,12 @@
           </a>
         </li>
         <li class="nav-item ">
+            <a class="nav-link" href="{{ Route('admin.newsCategoryIndex') }}">
+              <i class="material-icons">notifications</i>
+              <p>Quản Lý Loại Tin Tức</p>
+            </a>
+          </li>
+        <li class="nav-item ">
           <a class="nav-link" href="./rtl.html">
             <i class="material-icons">language</i>
             <p>RTL Support</p>

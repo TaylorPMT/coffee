@@ -8,5 +8,10 @@ class NewsCategory extends Model
 {
     //
     protected $table="news_category";
+    public $timestamps = false;
+    protected $fillable=[
+        'ten_dmtintuc',
+        'trangthai',
+    ];
 
 }

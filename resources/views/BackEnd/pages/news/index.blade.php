@@ -2,23 +2,7 @@
 @section('title', $controllerName)
 @section('head')
     @include('BackEnd.scripts.css')
-    <script>
-        $(document).ready(function(){
-          function showNotification(message,from, align){
-              $.notify({
-                  icon: "add_alert",
-                  message: message,
-              },{
-                  type: 'danger',
-                  timer: 2000,
-                  placement: {
-                      from: from,
-                      align: align
-                  }
-              });
-           };
-        });
-  </script>
+
 @endsection
 @section('content')
 <div class="container-fluid">
@@ -52,7 +36,7 @@
       </div>
     <div class="row">
         <div class="col-md-10 d-flex justify-content-end">
-            <a href="{{Route('admin.newsSave')}}" class="btn btn-primary btn-round"  style="color: white;">
+            <a href="{{ Route('admin.newsCategorySave') }}" class="btn btn-primary btn-round"  style="color: white;">
                 <i class="material-icons">add_circle_outline</i> Thêm Tin Tức
             </a>
         </div>
@@ -68,26 +52,17 @@
           <div class="table-responsive">
              <table class="table" id="myTable">
                 <thead class=" text-primary">
-                    <th>#</th>
+                    <th>STT</th>
                    <th>
                      Chủ đề
                    </th>
                    <th>
-                    Đường dẫn
+                    Trạng Thái
                   </th>
                   <th>
-                    Nội dung SEO
+                    Hành Động
                   </th>
-                  <th>
-                    Từ khoá SEO
-                  </th>
-                  <th>
-                    Trạng thái
-                  </th>
-                  <th>
-                    Người cập nhật
-                  </th>
-                  <th>Hành động</th>
+
                 </thead>
                 <tbody>
                 </tbody>
@@ -101,6 +76,23 @@
     @include('BackEnd.scripts.js')
     <script>
         $(document).ready(function(){
+          function showNotification(message,from, align){
+              $.notify({
+                  icon: "add_alert",
+                  message: message,
+              },{
+                  type: 'danger',
+                  timer: 2000,
+                  placement: {
+                      from: from,
+                      align: align
+                  }
+              });
+           };
+        });
+  </script>
+    <script>
+        $(document).ready(function(){
             var vietname="{{ asset('BackEnd/jtable/Vietnamese.json') }}";
             $('#myTable').DataTable({
                 processing:true,
@@ -108,18 +100,15 @@
                 language: {
                     "url": vietname
                 },
-                ajax: '{{ Route('admin.newsFetchIndex') }}',
+                ajax: '{{ Route('admin.newsCategoryAjax') }}',
                 columns:[
                     {data:'stt',render: function (data, type, row, meta) {
                             return meta.row + meta.settings._iDisplayStart + 1;
                         }},
-                    {data:'name',name:'name'},
-                    {data:'slug',name:'slug'},
-                    {data:'meta_desc',name:'meta_desc'},
-                    {data:'meta_key',name:'meta_key'},
+                    {data:'ten_dmtintuc',name:'ten_dmtintuc'},
                     {data:'status',name:'status'},
-                    {data:'created_by',name:'created_by'},
                     {data:'action',name:'action'},
+
                 ]
             });
                //phần này xử lý jquery ajax để xóa data hoặc update
@@ -128,11 +117,12 @@
             $(document).on("click",".delete",function (){
                id= $(this).val();
                //gọi modal để xác nhận ý kiến nếu ok mới xóa dữ liệu
+               $("#btn-confirm").text("Đồng Ý");
                $('.modal-delete').modal('show');
 
             });
             $("#btn-confirm").click(function (){
-                let url ="{{Route('admin.newsDelete',':id')}}";
+                let url ="{{ Route('admin.newsCategoryDelete',':id') }}";
                 url=url.replace(':id',id);
                 $.ajax({
                     url:url,
@@ -143,10 +133,13 @@
                     success:function (data)
                     { console.log(data);
                         $("#btn-confirm").text(data.message);
+                       if(data.type==true)
+                       {
                         setTimeout(function (){
                             $('.modal-delete').modal('hide');
                             $("#myTable").DataTable().ajax.reload();
                         },2000);
+                       }
                     }
                 });
             });
@@ -172,7 +165,7 @@
                 $(document).on("click",".update_status",function (){
                 update=$(this).val();
                 console.log(update);
-                let url ="{{Route('admin.newsUpdateStatus',':id')}}";
+                let url ="{{ Route('admin.newsCategoryUpdateStatus',':id') }}";
                 url=url.replace(':id',update);
                 $.ajax({
                     url:url,
