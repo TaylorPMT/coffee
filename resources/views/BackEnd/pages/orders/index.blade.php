@@ -28,25 +28,20 @@
                      Mã đơn hàng
                    </th>
                    <th>
-                    Người cập nhật
-                  </th>
-                  <th>
-                    Họ và tên khách hàng
-                  </th>
-                  <th>
-                   Số điện thoại
-                  </th>
-                  <th>
-                   Email
+                    Họ tên khách hàng
                   </th>
                   <th>
                    Tổng tiền
                   </th>
                   <th>
+                   Hình thức thanh toán
+                  </th>
+
+                  <th>
+                    Người cập nhật đơn hàng
+                  </th>
+                  <th>
                     Trạng thái
-                   </th>
-                   <th>
-                    Ngày lập đơn
                    </th>
                   <th>Hành động</th>
                 </thead>
@@ -69,33 +64,32 @@
                 language: {
                     "url": vietname
                 },
-                ajax: '{{ Route('admin.ordersFetchIndex') }}',
+                ajax: '{{ Route('admin.orderAjax') }}',
                 columns:[
                     {render: function (data, type, row, meta) {
                             return meta.row + meta.settings._iDisplayStart + 1;
                         }},
                     {data:'id',name:'id'},
-                    {data:'admin_id',name:'admin_id'},
-                    {data:'full_name',name:'full_name'},
-                    {data:'phone',name:'phone'},
-                    {data:'email',name:'email'},
-                    {data:'price',name:'price'},
-                    {data:'status',name:'status'},
-                    {data:'created_at',name:'created_at'},
+                    {data:'id_khachhang',name:'id_khachhang'},
+                    {data:'dongia',name:'dongia'},
+                    {data:'payment',name:'payment'},
+                    {data:'id_admin',name:'id_admin'},
+                    {data:'trangthai',name:'trangthai'},
                     {data:'action',name:'action'},
                 ]
             });
-              //phần này xử lý jquery ajax để xóa data hoặc update
+            //phần này xử lý jquery ajax để xóa data hoặc update
             //xóa dữ liệu
             var id;
             $(document).on("click",".delete",function (){
                id= $(this).val();
+               $("#btn-confirm").text("Đồng Ý");
                //gọi modal để xác nhận ý kiến nếu ok mới xóa dữ liệu
                $('.modal-delete').modal('show');
 
             });
             $("#btn-confirm").click(function (){
-                let url ="{{Route('admin.ordersDelete',':id')}}";
+                let url ="{{ Route('admin.orderDelete',':id') }}";
                 url=url.replace(':id',id);
                 $.ajax({
                     url:url,
@@ -105,7 +99,6 @@
                     type:'GET',
                     success:function (data)
                     {
-                        console.log(data);
                         $("#btn-confirm").text(data.message);
                         setTimeout(function (){
                             $('.modal-delete').modal('hide');
@@ -135,7 +128,7 @@
                 var update;
                 $(document).on("click",".update_status",function (){
                 update=$(this).val();
-                let url ="{{Route('admin.ordersUpdateStatus',':id')}}";
+                let url ="{{Route('admin.orderUpdateStatus',':id')}}";
                 url=url.replace(':id',update);
                 $.ajax({
                     url:url,

@@ -9,14 +9,26 @@
 
         <li class="nav-item ">
           <a class="nav-link" href="{{ Route('admin.categoryIndex') }}">
-            <i class="material-icons">notifications</i>
+            <i class="material-icons">local_offer</i>
             <p>Quản Lý Loại Sản Phẩm</p>
           </a>
         </li>
         <li class="nav-item ">
+<<<<<<< HEAD
             <a class="nav-link" href="{{ Route('admin.newsCategoryIndex') }}">
               <i class="material-icons">notifications</i>
               <p>Quản Lý Loại Tin Tức</p>
+=======
+            <a class="nav-link" href="{{ Route('admin.productIndex') }}">
+              <i class="material-icons">content_paste</i>
+              <p>Quản Lý Sản Phẩm</p>
+            </a>
+          </li>
+          <li class="nav-item ">
+            <a class="nav-link" href="{{ Route('admin.orderIndex') }}">
+              <i class="material-icons">shopping_cart</i>
+              <p>Quản Lý Đơn Hàng</p>
+>>>>>>> a1477896a1a1c689da9e013dfefbc799225fdff3
             </a>
           </li>
         <li class="nav-item ">

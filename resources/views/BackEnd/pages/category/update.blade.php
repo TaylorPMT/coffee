@@ -41,7 +41,7 @@
                     $type=session('message');
                 @endphp
                 <div class="alert alert-{{ $type['type'] }} alert-dismissible fade show" role="alert">
-                    <strong>{{ $type['msg'] }}
+                    <strong>{{ $type['message'] }}
                     <button type="button" class="close" data-dismiss="alert" aria-label="Close">
                       <span aria-hidden="true">&times;</span>
                     </button>
@@ -67,43 +67,7 @@
                         <label for="title">Tên thể loại</label>
                         <input type="text" class="form-control" value="{{ $category->name }}" name="name" minlength="5">
                     </div>
-                    <div class="form-group">
-                        <label for="title">Từ khoá SEO</label>
-                        <input type="text" class="form-control" value="{{ $category->meta_key }}" name="meta_key" minlength="5">
-                    </div>
-                    <div class="form-group">
-                        <label for="title">Nội dung SEO</label>
-                        <input type="text" class="form-control" value="{{ $category->meta_desc }}" name="meta_desc" minlength="5">
-                    </div>
-                    <div class="form-group">
-                        <label for="title">Thẻ ALT</label>
-                        <input type="text" class="form-control" value="{{ $category->alt }}" name="alt" minlength="5">
-                    </div>
-                    <div class="form-group">
-                        <label class="control-label">Trạng thái</label>
-                            <div class="radio-list">
-                                <label>
-                                <input type="radio" name="status" value="0" {{ $category->status ==0 ?"checked":"" }} />Không hoạt động</label>
-                                <br>
-                                <label>
-                                <input type="radio" name="status" value="1" {{ $category->status ==1 ?"checked":"" }}  />Hoạt động</label>
-                            </div>
-                    </div>
-                    <div class="col-md-4">
-                        <div class="fileinput fileinput-new text-center" data-provides="fileinput">
-                            <div class="fileinput-preview fileinput-exists thumbnail img-raised" style="display: flex;justify-content: center; ">
-                                <img src="{{ $category->image }}" style="display: block">
-                            </div>
-                            <div>
-                            <span class="btn btn-raised btn-round btn-default btn-file">
-                                <span class="fileinput-new">Chọn Hình</span>
-                                <span class="fileinput-exists">Thể Loại</span>
-                                <input type="file" name="image" />
-                            </span>
-                                <a href="#pablo" class="btn btn-danger btn-round fileinput-exists" data-dismiss="fileinput"><i class="fa fa-times"></i> Remove</a>
-                            </div>
-                        </div>
-                    </div>
+
             </div>
         </div>
         <div class="row">

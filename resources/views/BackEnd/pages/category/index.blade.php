@@ -13,7 +13,7 @@
                   $type=session('message');
               @endphp
               <div class="alert alert-{{ $type['type'] }} alert-dismissible fade show" role="alert">
-                  <strong>{{ $type['msg'] }}
+                  <strong>{{ $type['message'] }}
                   <button type="button" class="close" data-dismiss="alert" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                   </button>
@@ -36,7 +36,7 @@
       </div>
     <div class="row">
         <div class="col-md-10 d-flex justify-content-end">
-            <a href="" class="btn btn-primary btn-round"  style="color: white;">
+            <a href="{{ Route('admin.categorySave') }}" class="btn btn-primary btn-round"  style="color: white;">
                 <i class="material-icons">add_circle_outline</i> Thêm Thể Loại
             </a>
         </div>
@@ -59,7 +59,7 @@
                      Tên thể loại
                    </th>
                    <th>
-                    Đường dẫn
+                    Chức năng
                   </th>
 
                 </thead>
