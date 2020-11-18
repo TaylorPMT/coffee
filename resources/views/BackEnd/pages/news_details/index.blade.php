@@ -2,23 +2,7 @@
 @section('title', $controllerName)
 @section('head')
     @include('BackEnd.scripts.css')
-    <script>
-        $(document).ready(function(){
-          function showNotification(message,from, align){
-              $.notify({
-                  icon: "add_alert",
-                  message: message,
-              },{
-                  type: 'danger',
-                  timer: 2000,
-                  placement: {
-                      from: from,
-                      align: align
-                  }
-              });
-           };
-        });
-  </script>
+
 @endsection
 @section('content')
 <div class="container-fluid">
@@ -52,7 +36,7 @@
       </div>
     <div class="row">
         <div class="col-md-10 d-flex justify-content-end">
-            <a href="{{Route('admin.newsdetailsSave',$id_tin)}}" class="btn btn-primary btn-round"  style="color: white;">
+            <a href="{{Route('admin.newsdetailsSave',['id'=>$id_tin])}}" class="btn btn-primary btn-round"  style="color: white;">
                 <i class="material-icons">add_circle_outline</i> Thêm Chi Tiết Tin Tức
             </a>
         </div>
@@ -76,20 +60,7 @@
                     Đường dẫn
                   </th>
                   <th>
-                    Nội dung
-                  </th>
-                  <th>
-                    Nội dung SEO
-                  </th>
-                  <th>
-                    Từ khoá SEO
-                  </th>
-                  <th>Hình ảnh</th>
-                  <th>
-                    Trạng thái
-                  </th>
-                  <th>
-                    Người cập nhật
+                    Đường dẫn
                   </th>
                   <th>Hành động</th>
                 </thead>
@@ -105,6 +76,23 @@
     @include('BackEnd.scripts.js')
     <script>
         $(document).ready(function(){
+          function showNotification(message,from, align){
+              $.notify({
+                  icon: "add_alert",
+                  message: message,
+              },{
+                  type: 'danger',
+                  timer: 2000,
+                  placement: {
+                      from: from,
+                      align: align
+                  }
+              });
+           };
+        });
+  </script>
+    <script>
+        $(document).ready(function(){
             var vietname="{{ asset('BackEnd/jtable/Vietnamese.json') }}";
             $('#myTable').DataTable({
                 processing:true,
@@ -117,15 +105,11 @@
                     {render: function (data, type, row, meta) {
                             return meta.row + meta.settings._iDisplayStart + 1;
                         }},
-                    {data:'title',name:'title'},
-                    {data:'slug',name:'slug'},
-                    {data:'detail',name:'detail'},
-                    {data:'meta_desc',name:'meta_desc'},
-                    {data:'meta_key',name:'meta_key'},
+                    {data:'tieude',name:'tieude'},
                     {data:'image',name:'image'},
-                    {data:'status',name:'status'},
-                    {data:'created_by',name:'created_by'},
+                    {data:'tacgia',name:'tacgia'},
                     {data:'action',name:'action'},
+
                 ]
             });
              //phần này xử lý jquery ajax để xóa data hoặc update

@@ -59,31 +59,18 @@
                     @csrf
                     <div class="form-group">
                         <label for="title">Chủ đề</label>
-                        <input type="text" class="form-control" name="title" minlength="5" maxlength="20">
+                        <input type="text" class="form-control" name="tieude" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="title">Tác Giả</label>
+                        <input type="text" class="form-control" name="tacgia" required>
                     </div>
                      <div class="form-group">
                     <label  class="size">Nội dung</label><br>
-                    <textarea class="form-control" name="detail" id="exampleFormControlTextarea1" rows="4"></textarea>
+                    <textarea class="form-control" name="noidung" id="exampleFormControlTextarea1" rows="4"></textarea>
                      </div>
-                    <div class="form-group">
-                        <label for="title">Mô tả SEO</label>
-                        <input type="text" class="form-control" name="meta_desc" minlength="5">
-                    </div>
 
-                    <div class="form-group">
-                        <label for="title">Từ khoá SEO</label>
-                        <input type="text" class="form-control" name="meta_key" minlength="5">
-                    </div>
-                    <div class="form-group">
-                        <label class="control-label">Trạng thái</label>
-                            <div class="radio-list">
-                                <label>
-                                <input type="radio" name="status" value="0"/>Không hoạt động</label>
-                                <br>
-                                <label>
-                                <input type="radio" name="status" value="1" checked="checked" />Hoạt động</label>
-                            </div>
-                    </div>
+
                     <div class="col-md-4">
                         <div class="fileinput fileinput-new text-center" data-provides="fileinput">
                             <div class="fileinput-preview fileinput-exists thumbnail img-raised"></div>
@@ -122,7 +109,7 @@
             filebrowserBrowseUrl: '/laravel-filemanager?type=Files',
             filebrowserUploadUrl: '/laravel-filemanager/upload?type=Files&_token='
           };
-        CKEDITOR.replace( 'detail',options);
+        CKEDITOR.replace( 'noidung',options);
 
     </script>
 @endsection

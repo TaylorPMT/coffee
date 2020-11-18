@@ -63,11 +63,11 @@ class NewsCategoryController extends Controller
             $action.="delete_forever";
             $action.='</button></i>';
             $action.="  ";
-            $action.='<a href="' . url('quan-ly/update-category/' . $queryTable->id) . '" class="btn btn-primary btn-round">
+            $action.='<a href="' . url('quan-ly/news/update/' . $queryTable->id) . '" class="btn btn-primary btn-round">
                         <i class="material-icons">';
             $action.="update";
             $action.='</i></a>';
-            $action.='<a href="' . url('quan-ly/quan-ly-category-details/' . $queryTable->id) . '" class="btn btn-primary btn-round">
+            $action.='<a href="' . url('quan-ly/news-detail/' . $queryTable->id) . '" class="btn btn-primary btn-round">
                         <i class="material-icons">';
             $action.="settings";
             $action.='</i></a>';
@@ -119,6 +119,7 @@ class NewsCategoryController extends Controller
                 'ten_dmtintuc'=>'required|unique:news_category',
                 'trangthai'=>'required|numeric',
             ];
+
             $validator=validator()->make($request->all(),$rules,[
                 'ten_dmtintuc.required'=>'Không Được Bỏ Trống',
                 'ten_dmtintuc.unique'=>'Trùng Tên Đã Có',
@@ -129,8 +130,43 @@ class NewsCategoryController extends Controller
             {
                 return redirect()->back()->withErrors($validator);
             }
-            $this->_model->createDataE($request->all());
+            $dataAdd=[
+                'ten_dmtintuc'=>$request->ten_dmtintuc,
+                'trangthai'=>$request->trangthai,
+            ];
+            $this->_model->createDataE($dataAdd);
             return redirect()->back()->with('message',$this->messageView('Thêm Thành Công','success'));
+        }
+    }
+    public function update(Request $request,$id)
+    {
+        if($request->isMethod('GET'))
+        {
+            $news=$this->_model->findOrFailE($id);
+            return view($this->_root.'update',compact('news'));
+        }else
+        {
+            $rules =[
+                'ten_dmtintuc'=>'required|unique:news_category,ten_dmtintuc,'.$id,
+                'trangthai'=>'required|numeric',
+            ];
+            $validator=validator()->make($request->all(),$rules,[
+                'ten_dmtintuc.required'=>'Tên Không Được Bỏ Trống',
+                'ten_dmtintuc.news_category'=>'Không Được Trùng',
+                'trangthai.required'=>'Trạng Thái Không Được Bỏ Trống',
+                'trangthai.numeric'=>'Dạng Số',
+            ]);
+            if($validator->fails())
+            {
+                return redirect()->back()->withErrors($validator);
+            }
+            $dataAdd=[
+                'ten_dmtintuc'=>$request->ten_dmtintuc,
+                'trangthai'=>$request->trangthai,
+            ];
+            $this->_model->updateDataE($id,$dataAdd);
+            return redirect()->back()->with('message',$this->messageView('Cập Nhật Thành Công','success'));
+
         }
     }
 }

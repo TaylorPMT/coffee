@@ -8,4 +8,9 @@ class SlideModel extends Model
 {
     //
     protected $table='slideqc';
+    protected $fillable=[
+        'link',
+        'image',
+        'id_admin'
+    ];
 }

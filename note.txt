@@ -1,4 +1,7 @@
 composer update
+xong chạy lệnh composer dump-autoload ,
+xóa file storage trong public , xong chạy lại lệnh
+php artisan storage:link
 //chạy lệnh nha
 
 php artisan db:seed

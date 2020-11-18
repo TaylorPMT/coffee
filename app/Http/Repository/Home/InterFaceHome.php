@@ -13,6 +13,7 @@ interface InterFaceHome{
     public function deleteIdE($id);
     //thêm sản phẩm
     public function createDataE(array $data);
-
+    // update data
+    public function updateDataE($id,array $data);
 
 }
