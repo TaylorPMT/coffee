@@ -29,20 +29,11 @@
                    </th>
                    <th>Sản phẩm</th>
                    <th>
+                    Số lượng
+                   </th>
+                   <th>
                     Tổng tiền
                   </th>
-                  <th>
-                    Tổng tiền khuyến mãi
-                  </th>
-                  <th>
-                   Số lượng
-                  </th>
-                  <th>
-                   Trạng thái
-                  </th>
-                   <th>
-                    Người cập nhật
-                   </th>
                   <th>Hành động</th>
                 </thead>
                 <tbody>
@@ -64,32 +55,30 @@
                 language: {
                     "url": vietname
                 },
-                ajax: '{{ Route('admin.ordersdetailsFetchIndex',$id) }}',
+                ajax: '{{ Route('admin.orderdetailsAjax',$id) }}',
                 columns:[
                     {render: function (data, type, row, meta) {
                             return meta.row + meta.settings._iDisplayStart + 1;
                         }},
-                    {data:'order_id',name:'order_id'},
-                    {data:'products_id',name:'products_id'},
-                    {data:'price',name:'price'},
-                    {data:'price_sale',name:'price_sale'},
-                    {data:'quantity',name:'quantity'},
-                    {data:'status',name:'status'},
-                    {data:'created_by',name:'created_by'},
+                    {data:'id_donhang',name:'id_donhang'},
+                    {data:'id_sanpham',name:'id_sanpham'},
+                    {data:'soluong',name:'soluong'},
+                    {data:'dongia',name:'dongia'},
                     {data:'action',name:'action'},
                 ]
             });
-              //phần này xử lý jquery ajax để xóa data hoặc update
+            //phần này xử lý jquery ajax để xóa data hoặc update
             //xóa dữ liệu
             var id;
             $(document).on("click",".delete",function (){
                id= $(this).val();
+               $("#btn-confirm").text("Đồng Ý");
                //gọi modal để xác nhận ý kiến nếu ok mới xóa dữ liệu
                $('.modal-delete').modal('show');
 
             });
             $("#btn-confirm").click(function (){
-                let url ="{{Route('admin.ordersdetailsDelete',':id')}}";
+                let url ="{{ Route('admin.orderdetailsDelete',':id') }}";
                 url=url.replace(':id',id);
                 $.ajax({
                     url:url,
@@ -124,25 +113,7 @@
                 });
                 };
 
-                // var update
-                var update;
-                $(document).on("click",".update_status",function (){
-                update=$(this).val();
-                let url ="{{Route('admin.ordersdetailsUpdateStatus',':id')}}";
-                url=url.replace(':id',update);
-                $.ajax({
-                    url:url,
-                    type:'GET',
-                    success:function (data)
-                    {
-                        showNotification('top','right',data.message);
-                        setTimeout(function (){
-                            $('#myTable').DataTable().ajax.reload();
-                        },2000);
-                    },
-                });
-            });
-            //End Update
+
         });
     </script>
 @endsection

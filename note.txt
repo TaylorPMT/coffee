@@ -10,4 +10,10 @@ Product
     +Tạo storage: php artisan storage:link
     + Done Product. Lưu ý nha nếu thêm hoặc sửa không được thì chỉnh lại kiểu dữ liệu trong dtb á khoá chính nó ghi là int(20) nhưng khoá ngoaại nó ghi int(11)
 
+17/11/2020 Thuỷ update
+Order
+    +Chỉnh lại mấy cột ghi sai created_at với updated_at
+    +Done order gồm cập nhật trạng thái + xoá đơn hàng + xem chi tiết đơn hàng.
+Order details
+    + Done order details chỉ có chức năng xoá
 
