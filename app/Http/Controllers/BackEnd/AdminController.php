@@ -35,7 +35,7 @@ class AdminController extends Controller
         $update=Admin::find(Auth::guard('admin')->user()->id);
         if($request->has('full_name'))
         {
-            $update->full_name=$request->full_name;
+            $update->name=$request->full_name;
         }
         if($request->has('email'))
         {

@@ -66,7 +66,7 @@
               <div class="col-md-8">
                 <div class="form-group">
                   <label class="bmd-label-floating">Tên Đầy Dủ </label>
-                  <input type="text" name="full_name" value="{{ Auth::guard('admin')->user()->full_name }}" class="form-control">
+                  <input type="text" name="full_name" value="{{ Auth::guard('admin')->user()->name }}" class="form-control">
                 </div>
               </div>
               <div class="col-md-4">
