@@ -1,6 +1,7 @@
 <?php
 
 
+
 Route::get('','BackEnd\LoginController@index')->name('admin.login');
 Route::post('admin-login-post','BackEnd\LoginController@postLogin')->name('admin.postLogin');
 

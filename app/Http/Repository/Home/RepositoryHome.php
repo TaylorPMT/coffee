@@ -39,5 +39,9 @@ class RepositoryHome implements InterFaceHome{
     {
         return $this->_modelCall->findOrFail($id)->update($data);
     }
+    public function searchLikeE($column,$data)
+    {
+        return $this->_modelCall->where($column,'LIKE',"%{$data}%")->get();
+    }
 
 }

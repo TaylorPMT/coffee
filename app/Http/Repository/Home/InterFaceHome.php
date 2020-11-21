@@ -16,4 +16,6 @@ interface InterFaceHome{
     // update data
     public function updateDataE($id,array $data);
 
+    //find theo tên sản phẩm
+    public function searchLikeE($column,$data);
 }
