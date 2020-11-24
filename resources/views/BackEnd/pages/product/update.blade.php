@@ -107,15 +107,14 @@
                         </div>
                     </div>
                     <div class="form-group">
-
                         <label class="size">Trạng thái sản phẩm</label>
                         <div class="radio-list">
                                 <label>
-                                <input type="radio" name="trangthai" value="0"/>Không hoạt động</label>
+                                <input type="radio" name="trangthai" value="0" {{ $product->trangthai==0 ? 'checked':'' }}/>Không hoạt động</label>
                                 <br>
                                 <label>
-                                <input type="radio" name="trangthai" value="1" checked="checked" />Hoạt động</label>
-                            </div>
+                                <input type="radio" name="trangthai" value="1" {{ $product->trangthai==1 ? 'checked':'' }} />Hoạt động</label>
+                        </div>
                     </div>
                     {{-- <div class="row">
                         <div class="col-md-12 d-flex justify-content-center">

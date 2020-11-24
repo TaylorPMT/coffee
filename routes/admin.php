@@ -82,6 +82,13 @@ Route::post('admin-login-post','BackEnd\LoginController@postLogin')->name('admin
         Route::any('save','AdminController@save')->name('admin.save');
 
     });
+    //Quản lý khách hàng
+    Route::group(['prefix' => 'customer'], function () {
+        Route::get('index','CustomerController@index')->name('admin.customerIndex');
+        Route::get('getData','CustomerController@getDataAjax')->name('admin.customerAjax');
+        Route::any('update/{id}','CustomerController@updateCustomer')->name('admin.customerUpdate');
+        Route::get('update-status/{id}','CustomerController@updateStatusCustomer')->name('admin.customerUpdateStatus');
+    });
 
  });
  Route::group(['prefix' => 'laravel-filemanager','middleware'=>'auth.admin'], function () {
