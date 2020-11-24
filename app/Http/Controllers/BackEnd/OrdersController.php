@@ -93,7 +93,12 @@ class OrdersController extends Controller
     {
         try {
           if($request->ajax())
-          {
+          {  $checkquyen=Auth::guard('admin')->user()->role;
+            if($checkquyen == 0)
+            {
+                return response()->json($this->message('Không có quyền xóa vui lòng liên hệ admin cấp cao',false));
+
+            }
               $query = $this->_model->findOrFailE($id);
               $query->trangthai=$query->trangthai==0?1:0;
               $query->id_admin = Auth::guard('admin')->user()->id;
@@ -118,6 +123,12 @@ class OrdersController extends Controller
             if($product)
             {
                 return response()->json($this->message('Không Thể Xóa Vì Có Chi Tiết Đơn Hàng Liên Quan',false));
+            }
+            $checkquyen=Auth::guard('admin')->user()->role;
+            if($checkquyen == 0)
+            {
+                return response()->json($this->message('Không có quyền xóa vui lòng liên hệ admin cấp cao',false));
+
             }
           $this->_model->deleteIdE($id);
            return response()->json($this->message('Xóa Thành Công',true));

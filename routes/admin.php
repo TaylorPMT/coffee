@@ -75,7 +75,14 @@ Route::post('admin-login-post','BackEnd\LoginController@postLogin')->name('admin
     Route::group(['prefix' => 'quan-ly-thong-tin'], function () {
         Route::get('quan-ly-thong-tin','AdminController@index')->name('admin.infoIndex');
         Route::post('cap-nhat','AdminController@update')->name('admin.updateProfile');
+        Route::get('quan-ly','AdminController@tableadmin')->name('admin.tableadmin');
+        Route::get('getData','AdminController@getData')->name('admin.getData');
+        Route::get('updateStatus/{id}','AdminController@updateStatus')->name('admin.updateStatus');
+        Route::any('update/{id}','AdminController@update_profile')->name('admin.update');
+        Route::any('save','AdminController@save')->name('admin.save');
+
     });
+
  });
  Route::group(['prefix' => 'laravel-filemanager','middleware'=>'auth.admin'], function () {
     \UniSharp\LaravelFilemanager\Lfm::routes();

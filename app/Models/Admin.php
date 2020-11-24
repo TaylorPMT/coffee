@@ -13,9 +13,7 @@ class Admin extends Authenticatable
     protected $guard='admin';
     protected $table="admin";
     protected $fillable=['name','email','sdt','role','trangthai','diachi','email_verified_at','password'];
-    protected $hidden = [
-        'password'
-    ];
+
 
     /**
      * The attributes that should be cast to native types.

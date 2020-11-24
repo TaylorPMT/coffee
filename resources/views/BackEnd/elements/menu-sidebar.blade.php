@@ -6,6 +6,12 @@
     <div class="sidebar-wrapper">
       <ul class="nav">
         <li class="nav-item ">
+            <a class="nav-link" href="{{ Route('admin.tableadmin') }}">
+              <i class="material-icons">view_carousel</i>
+              <p>Quản Lý Admin</p>
+            </a>
+          </li>
+        <li class="nav-item ">
             <a class="nav-link" href="{{ Route('admin.bannerIndex') }}">
               <i class="material-icons">view_carousel</i>
               <p>Quản Lý Banner</p>

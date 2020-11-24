@@ -17,6 +17,7 @@ class LoginController extends Controller
     }
     public function index()
     {
+
         return view('BackEnd.login.login');
     }
     public function postLogin(Request $request)
