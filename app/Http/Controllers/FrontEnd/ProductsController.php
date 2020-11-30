@@ -38,6 +38,22 @@ class ProductsController extends Controller
     public function orderCart(Request $request)
     {
         // pram
+        $rules=[
+            'dongia'=>'required',
+            'trangthai'=>'required',
+            'id_khachhang'=>'required',
+            'payment'=>'required',
+            'orderDeail'=>'required',
+
+
+        ];
+        $valator= validator()->make($request->all(),$rules,[
+
+        ]);
+        if($valator->fails())
+        {
+            return response()->json(['message'=>false,'data'=>$valator]);
+        }
         $dataAdd=[
             'dongia'=>$request->dongia,
             'trangthai'=>$request->trangthai,
@@ -57,7 +73,7 @@ class ProductsController extends Controller
             $createOrderDetail = OrderDetailModel::create($dataOrderDetail);
 
         }
-        return response()->json(['message'=>'success','data'=>'Đặt Hàng Thành Công']);
+        return response()->json(['message'=>true,'data'=>'Đặt Hàng Thành Công']);
 
     }
 }
