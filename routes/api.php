@@ -36,6 +36,10 @@ Route::group(['namespace' => 'FrontEnd'], function () {
         Route::get('get','NewsCategoryDetailController@getAll');
 
     });
+
+    Route::group(['prefix' => 'orderCart'], function () {
+        Route::post('order','ProductsController@orderCart');
+    });
 });
 
 Route::group(['middleware' => 'auth.jwt'], function () {

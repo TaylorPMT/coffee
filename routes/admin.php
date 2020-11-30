@@ -7,6 +7,7 @@ Route::post('admin-login-post','BackEnd\LoginController@postLogin')->name('admin
 
  Route::group(['prefix' => 'quan-ly','namespace'=>'BackEnd','middleware'=>'auth.admin'], function () {
     Route::get('','DashBoardController@index')->name('admin.dashboard');
+    Route::get('count-don-hang','DashBoardController@countOrderMonth')->name('admin.countOrderMonth');
     //route logout
     Route::get('login-out','LoginController@outLogin')->name('admin.logout');
     //quản lý banner
