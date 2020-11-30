@@ -24,4 +24,4 @@ Order details
 ALTER TABLE `customers` ADD `password` VARCHAR(255) NOT NULL AFTER `email`;
 //thêm dữ liệu test
 // thêm dư
-INSERT INTO `customers` (`id`, `ten`, `email`, `password`, `diachi`, `sdt`, `ghichu`, `trangthai`, `remember_token`, `create_at`, `update_at`) VALUES ('1', 'áđá', 'test@gmail.com', '$2y$10$6RHVjd.hOHccdW2m88w7KuRVg7ZeaHw1mBLhw7wdshgWG0xr4.t5m', 'áđâsd', 'áđá', 'áđá', '1', 'sadsad', '2020-11-30 20:58:43', '2020-11-30 20:58:43');
+INSERT INTO `customers` (`id`, `ten`, `email`, `password`, `diachi`, `sdt`, `ghichu`, `trangthai`, `remember_token`, `created_at`, `updated_at`) VALUES ('1', 'áđá', 'test@gmail.com', '$2y$10$6RHVjd.hOHccdW2m88w7KuRVg7ZeaHw1mBLhw7wdshgWG0xr4.t5m', 'áđâsd', 'áđá', 'áđá', '1', 'sadsad', '2020-11-30 20:58:43', '2020-11-30 20:58:43');

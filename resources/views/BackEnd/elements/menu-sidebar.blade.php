@@ -7,7 +7,7 @@
       <ul class="nav">
         <li class="nav-item ">
             <a class="nav-link" href="{{ Route('admin.tableadmin') }}">
-              <i class="material-icons">view_carousel</i>
+              <i class="material-icons">groups</i>
               <p>Quản Lý Admin</p>
             </a>
           </li>
@@ -33,6 +33,12 @@
             <a class="nav-link" href="{{ Route('admin.orderIndex') }}">
               <i class="material-icons">shopping_cart</i>
               <p>Quản Lý Đơn Hàng</p>
+            </a>
+          </li>
+          <li class="nav-item ">
+            <a class="nav-link" href="{{ Route('admin.customerIndex') }}">
+              <i class="material-icons">group_add</i>
+              <p>Quản Lý Khách Hàng</p>
             </a>
           </li>
           <li class="nav-item ">
