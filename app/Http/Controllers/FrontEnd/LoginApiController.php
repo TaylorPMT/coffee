@@ -87,4 +87,16 @@ class LoginApiController extends Controller
         ]);
         return response()->json(compact('user','token'),201);
     }
+    public  function  update(Request $request)
+    {
+            if($request->isMethod('GET'))
+            {
+                return response()->json(JWTAuth::user());
+            }else if($request->isMethod('PUT')){
+                    $update=User::find($request->id)->update([
+                        $request->all(),
+                    ]);
+                    return  response()->json(['data'=>JWTAuth::user(),'status'=>true],201);
+            }
+    }
 }

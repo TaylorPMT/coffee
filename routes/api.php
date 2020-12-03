@@ -40,6 +40,9 @@ Route::group(['namespace' => 'FrontEnd'], function () {
     Route::group(['prefix' => 'orderCart'], function () {
         Route::post('order','ProductsController@orderCart');
     });
+    Route::group(['prefix'=>'Profile'],function (){
+        Route::any('profile-user','LoginApiController@update');
+    });
 });
 
 Route::group(['middleware' => 'auth.jwt'], function () {

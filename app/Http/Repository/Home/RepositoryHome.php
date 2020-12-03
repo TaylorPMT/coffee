@@ -25,7 +25,7 @@ class RepositoryHome implements InterFaceHome{
     public  function whereE(array $where)
     {
 
-        return $this->_modelCall->where($where)->get();
+        return $this->_modelCall->where($where)->paginate(8);
     }
     public function deleteIdE($id)
     {
